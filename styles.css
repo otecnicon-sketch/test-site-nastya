@@ -121,17 +121,35 @@
     padding:13px 26px;border-radius:999px;
     font-size:15px;font-weight:500;text-decoration:none;
     border:1px solid currentColor;
-    transition:background .3s var(--ease),color .3s var(--ease),transform .3s var(--ease);
+    box-shadow:0 0 20px rgba(120,180,255,.45),0 0 55px rgba(120,180,255,.22);
+    transition:background .3s var(--ease),color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease);
   }
+  .pill-btn:hover{
+    box-shadow:0 0 32px rgba(120,180,255,.75),0 0 85px rgba(120,180,255,.40),0 0 140px rgba(120,180,255,.22);
+  }
+  @keyframes glowPulse{
+    0%,100%{box-shadow:0 0 20px rgba(120,180,255,.45),0 0 55px rgba(120,180,255,.20)}
+    50%{box-shadow:0 0 34px rgba(150,200,255,.85),0 0 90px rgba(120,180,255,.45),0 0 150px rgba(100,160,255,.28)}
+  }
+  .hero-cta .pill-btn{animation:glowPulse 3.2s ease-in-out infinite}
+  .hero-cta .pill-btn:nth-child(2){animation-delay:1.6s}
   .pill-btn .dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
-  .pill-btn.solid{background:var(--cream);color:var(--brown);border-color:var(--cream)}
-  .pill-btn.solid:hover{background:transparent;color:var(--cream)}
-  .pill-btn.ghost{color:var(--cream)}
-  .pill-btn.ghost:hover{background:var(--cream);color:var(--brown)}
-  .pill-btn.brown-solid{background:var(--brown);color:var(--cream);border-color:var(--brown)}
-  .pill-btn.brown-solid:hover{background:transparent;color:var(--brown)}
-  .pill-btn.brown-ghost{color:var(--brown)}
-  .pill-btn.brown-ghost:hover{background:var(--brown);color:var(--cream)}
+  .pill-btn.solid{background:var(--cream);color:var(--brown);border-color:var(--cream);
+    box-shadow:0 0 20px rgba(150,200,255,.55),0 0 55px rgba(120,180,255,.28)}
+  .pill-btn.solid:hover{background:transparent;color:var(--cream);
+    box-shadow:0 0 32px rgba(150,200,255,.85),0 0 85px rgba(120,180,255,.45),0 0 140px rgba(100,160,255,.26)}
+  .pill-btn.ghost{color:var(--cream);
+    box-shadow:0 0 20px rgba(120,180,255,.40),0 0 55px rgba(120,180,255,.18)}
+  .pill-btn.ghost:hover{background:var(--cream);color:var(--brown);
+    box-shadow:0 0 32px rgba(150,200,255,.85),0 0 85px rgba(120,180,255,.45),0 0 140px rgba(100,160,255,.26)}
+  .pill-btn.brown-solid{background:var(--brown);color:var(--cream);border-color:var(--brown);
+    box-shadow:0 0 20px rgba(120,180,255,.40),0 0 55px rgba(120,180,255,.20)}
+  .pill-btn.brown-solid:hover{background:transparent;color:var(--brown);
+    box-shadow:0 0 32px rgba(120,180,255,.75),0 0 85px rgba(120,180,255,.40),0 0 140px rgba(100,160,255,.22)}
+  .pill-btn.brown-ghost{color:var(--brown);
+    box-shadow:0 0 20px rgba(120,180,255,.35),0 0 55px rgba(120,180,255,.16)}
+  .pill-btn.brown-ghost:hover{background:var(--brown);color:var(--cream);
+    box-shadow:0 0 32px rgba(120,180,255,.70),0 0 85px rgba(120,180,255,.38),0 0 140px rgba(100,160,255,.20)}
 
   .hero-badge{
     position:absolute;z-index:2;
@@ -429,7 +447,7 @@
   .fade-up.in{opacity:1;transform:none}
   @media (prefers-reduced-motion:reduce){
     .fade-up{opacity:1;transform:none;transition:none}
-    .marquee-track,.hero-badge{animation:none}
+    .marquee-track,.hero-badge,.hero-cta .pill-btn{animation:none}
   }
 
   /* hardening: replaced inline styles */
